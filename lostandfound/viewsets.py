@@ -209,6 +209,7 @@ class BootstrapView(viewsets.ViewSet):
             'stats': {
                 'total_lost': Item.objects.filter(status='LOST').count(),
                 'total_found': Item.objects.filter(status='FOUND').count(),
+                'successfully_returned': Item.objects.filter(status='CLAIMED').count(),
                 'total_items': Item.objects.count(),
             },
             'user': None,
