@@ -162,9 +162,11 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "https://finditfrontend-ftj4.vercel.app",
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "https://finditfrontend-ftj4.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
