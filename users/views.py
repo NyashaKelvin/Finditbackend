@@ -4,6 +4,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client
+from dj_rest_auth.registration.views import SocialLoginView
 
 from .serializers import RegisterSerializer
 
@@ -43,3 +46,11 @@ def logout_view(request):
         return Response({'detail': 'POST to logout (must be authenticated).'})
     logout(request)
     return Response({'message': 'Logged out.'})
+
+
+class GoogleLogin(SocialLoginView):
+    adapter_class = GoogleOAuth2Adapter
+    # The callback URL doesn't actually redirect for this "token-only" approach, 
+    # but it's required by the client for validation.
+    callback_url = "http://localhost:8080" 
+    client_class = OAuth2Client

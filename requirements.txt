@@ -8,3 +8,5 @@ pillow==12.1.1
 PyJWT==2.12.1
 sqlparse==0.5.5
 tzdata==2025.3
+dj-rest-auth[with_social]
+django-allauth
